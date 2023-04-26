@@ -21,6 +21,8 @@ The script takes the following options:
 
 -`h` : Print the help message.
 
+![Screenshot 2023-04-26 22 49 58](https://user-images.githubusercontent.com/38471159/234710713-1d48022b-e049-4970-ad4c-6d403028401f.png)
+
 ## Installation
 
 Clone the repository:
