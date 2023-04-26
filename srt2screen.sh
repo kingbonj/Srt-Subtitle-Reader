@@ -62,7 +62,7 @@ if [ "$verbose" = true ]; then
 fi
 
 # Convert .srt to .txt file and filter out lines that start with numbers
-tr -d '\r' < "$filename" | sed '/^[0-9]/d' > "${filename%.*}.txt"
+tr -d '\r' < "$filename" | sed -E 's/<[^>]*>//g' | sed '/^[0-9]/d' > "${filename%.*}.txt"
 
 # Read the .txt file line by line and display the text with a specified delay
 previous_line=""
@@ -110,6 +110,7 @@ if [[ $previous_line =~ ^[[:print:]]+$ ]]; then
     else
       sleep "$(echo "$delay/1000" | bc -l)"
     fi
+  fi
 fi
 
 # Exit text:
@@ -117,6 +118,4 @@ fi
 
 # Remove the temporary .txt file
 rm "${filename%.*}.txt"
-
-fi
 
